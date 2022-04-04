@@ -1,8 +1,10 @@
 import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -15,11 +17,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Create_User {
+    @BeforeSuite
+    public void nothing() {
+        RestAssured.useRelaxedHTTPSValidation();
+    }
 
 
     //Path and sheet name of the database(Excel File)
     String Path_Of_Excel_File = "C:\\Users\\adityakumar72\\Desktop\\Register.xlsx";
-    String SHEET_NAME_INSIDE_THE_EXCEL = "database";
+    String SHEET_NAME_INSIDE_THE_EXCEL = "Database";
 
 
 

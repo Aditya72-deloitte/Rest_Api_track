@@ -1,8 +1,10 @@
 import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -15,8 +17,13 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Login_userValidation {
 
-    String Path_Of_Excel_File = "C:\\Users\\adityakumar72\\Desktop\\Database.xlsx";
-    String SHEET_NAME_INSIDE_THE_EXCEL = "database";
+    @BeforeSuite
+    public void nothing() {
+        RestAssured.useRelaxedHTTPSValidation();
+    }
+
+    String Path_Of_Excel_File = "C:\\Users\\adityakumar72\\Desktop\\Register.xlsx";
+    String SHEET_NAME_INSIDE_THE_EXCEL = "Database";
 
 
     private  static final String LOG_FILE = "log4j.properties";
